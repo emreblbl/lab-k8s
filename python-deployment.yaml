@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+  labels:
+    app: python-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-deployment
+  template:
+    metadata:
+      labels:
+        app: python-deployment
+    spec:
+      containers:
+      - name: python-deployment
+        image: registry.digitalocean.com/final-term/python-k8s:latest
+        ports:
+        - containerPort: 80
+
